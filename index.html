@@ -7,21 +7,56 @@
   <style>
     body {
       margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      font-family: Arial, sans-serif;
       background: #f5f5f5;
+      text-align: center;
+    }
+    header {
+      background: #1CAAD9;
+      color: white;
+      padding: 15px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    p.instructions {
+      margin: 15px;
+      font-size: 1.1em;
+      color: #333;
     }
     model-viewer {
       width: 100%;
-      height: 100%;
+      height: 70vh;
+      background: #eaeaea;
+    }
+    .btn-ar {
+      margin: 20px;
+      padding: 12px 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: white;
+      background: #1CAAD9;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn-ar:hover {
+      background: #1482a5;
     }
   </style>
 </head>
 <body>
+  <header>
+    Explore Jagannath Temple in AR
+  </header>
+
+  <p class="instructions">
+    👇 Tap and rotate the 3D model below.  
+    📱 On mobile, press the <b>“View in your space”</b> button to open AR and place the temple in the real world!
+  </p>
+
   <model-viewer 
-      src="model.glb"
+      id="temple"
+      src="JagannathTemple.glb"
       alt="Jagannath Temple in Ranchi"
       ar
       ar-modes="webxr scene-viewer quick-look"
@@ -29,5 +64,9 @@
       camera-controls
       shadow-intensity="1">
   </model-viewer>
+
+  <button class="btn-ar" onclick="document.getElementById('temple').activateAR()">
+    View in AR 🚀
+  </button>
 </body>
 </html>
